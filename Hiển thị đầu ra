@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện tập hiển thị thông báo</title>
+</head>
+<body>
+
+    <h2>Hiển thị kết quả bằng JavaScript</h2>
+
+    <!-- Bài tập 2: Hiển thị kết quả sử dụng thẻ HTML -->
+    <h3>Bài tập 2: Hiển thị kết quả sử dụng thẻ HTML</h3>
+    <p id="html-output"></p>
+
+    <!-- Bài tập 3: Hiển thị kết quả sử dụng document.write() -->
+    <h3>Bài tập 3: Hiển thị kết quả sử dụng document.write()</h3>
+    <button onclick="showDocumentWrite()">Nhấn để hiển thị</button>
+
+    <!-- Bài tập 4: Hiển thị kết quả sử dụng console.log() -->
+    <h3>Bài tập 4: Hiển thị kết quả sử dụng console.log()</h3>
+    <button onclick="showConsoleLog()">Nhấn để xem console</button>
+
+    <script>
+        // Bài tập 2: Hiển thị kết quả sử dụng thẻ HTML
+        document.getElementById("html-output").innerHTML = "Kết quả hiển thị bằng thẻ HTML!";
+
+        // Bài tập 3: Hiển thị kết quả sử dụng document.write()
+        function showDocumentWrite() {
+            document.write("<h3>Kết quả hiển thị bằng document.write!</h3>");
+        }
+
+        // Bài tập 4: Hiển thị kết quả sử dụng console.log()
+        function showConsoleLog() {
+            console.log("Kết quả hiển thị trong console.log!");
+            alert("Mở Console (F12 → Tab Console) để xem kết quả.");
+        }
+    </script>
+
+</body>
+</html>
