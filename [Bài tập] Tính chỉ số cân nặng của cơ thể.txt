@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính BMI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .calculator {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Tính chỉ số BMI</h2>
+
+    <div class="calculator">
+        <input type="number" id="weight" placeholder="Nhập cân nặng (kg)">
+        <br>
+        <input type="number" id="height" placeholder="Nhập chiều cao (m)">
+        <br>
+        <button onclick="calculateBMI()">Tính BMI</button>
+        <br>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            let weight = parseFloat(document.getElementById("weight").value);
+            let height = parseFloat(document.getElementById("height").value);
+            let resultText = document.getElementById("result");
+
+            if (isNaN(weight) || isNaN(height) || height <= 0) {
+                resultText.innerHTML = "Vui lòng nhập số hợp lệ!";
+                return;
+            }
+
+            let bmi = weight / (height * height);
+            let classification;
+
+            if (bmi < 18.5) {
+                classification = "Underweight (Gầy)";
+            } else if (bmi < 25.0) {
+                classification = "Normal (Bình thường)";
+            } else if (bmi < 30.0) {
+                classification = "Overweight (Thừa cân)";
+            } else {
+                classification = "Obese (Béo phì)";
+            }
+
+            resultText.innerHTML = `BMI: ${bmi.toFixed(2)} - ${classification}`;
+        }
+    </script>
+
+</body>
+</html>
