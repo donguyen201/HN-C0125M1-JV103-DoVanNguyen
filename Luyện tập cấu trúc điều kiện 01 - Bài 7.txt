@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Cước Điện Thoại</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+        }
+        input, button {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            color: blue;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Tính Cước Điện Thoại</h2>
+
+    <div class="container">
+        <input type="number" id="minutes" placeholder="Nhập số phút đã gọi" min="0">
+        <br>
+        <button onclick="calculatePhoneBill()">Tính cước</button>
+        <br>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculatePhoneBill() {
+            let minutes = parseFloat(document.getElementById("minutes").value);
+            let resultText = document.getElementById("result");
+
+            if (isNaN(minutes) || minutes < 0) {
+                resultText.innerHTML = "Vui lòng nhập số phút hợp lệ.";
+                resultText.style.color = "red";
+                return;
+            }
+
+            // Định nghĩa các mức giá cước
+            let baseFee = 25000; // Cước thuê bao cố định
+            let costPerMinute;
+            let totalCost;
+
+            if (minutes <= 50) {
+                costPerMinute = 600;
+            } else if (minutes <= 150) {
+                costPerMinute = 400;
+            } else {
+                costPerMinute = 200;
+            }
+
+            totalCost = baseFee + (minutes * costPerMinute);
+
+            resultText.innerHTML = `Số phút gọi: <b>${minutes} phút</b><br>
+                                    Tổng cước: <b>${totalCost.toLocaleString()} VNĐ</b>`;
+            resultText.style.color = "green";
+        }
+    </script>
+
+</body>
+</html>
