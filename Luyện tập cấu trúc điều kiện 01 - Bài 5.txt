@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xếp loại học lực</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+        }
+        input, button {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            color: blue;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Xếp loại học lực</h2>
+
+    <div class="container">
+        <input type="number" id="quizScore" placeholder="Nhập điểm bài kiểm tra" min="0" max="10" step="0.1">
+        <br>
+        <input type="number" id="midtermScore" placeholder="Nhập điểm thi giữa kỳ" min="0" max="10" step="0.1">
+        <br>
+        <input type="number" id="finalScore" placeholder="Nhập điểm thi cuối kỳ" min="0" max="10" step="0.1">
+        <br>
+        <button onclick="calculateGrade()">Xếp loại</button>
+        <br>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateGrade() {
+            let quizScore = parseFloat(document.getElementById("quizScore").value);
+            let midtermScore = parseFloat(document.getElementById("midtermScore").value);
+            let finalScore = parseFloat(document.getElementById("finalScore").value);
+            let resultText = document.getElementById("result");
+
+            if (isNaN(quizScore) || isNaN(midtermScore) || isNaN(finalScore)) {
+                resultText.innerHTML = "Vui lòng nhập đầy đủ điểm số.";
+                resultText.style.color = "red";
+                return;
+            }
+
+            if (quizScore < 0 || quizScore > 10 || midtermScore < 0 || midtermScore > 10 || finalScore < 0 || finalScore > 10) {
+                resultText.innerHTML = "Điểm phải nằm trong khoảng từ 0 đến 10.";
+                resultText.style.color = "red";
+                return;
+            }
+
+            let average = (quizScore * 0.2) + (midtermScore * 0.3) + (finalScore * 0.5);
+            let grade;
+
+            if (average >= 8.5) {
+                grade = "Giỏi";
+                resultText.style.color = "green";
+            } else if (average >= 7.0) {
+                grade = "Khá";
+                resultText.style.color = "blue";
+            } else if (average >= 5.0) {
+                grade = "Trung bình";
+                resultText.style.color = "orange";
+            } else {
+                grade = "Yếu";
+                resultText.style.color = "red";
+            }
+
+            resultText.innerHTML = `Điểm trung bình: <b>${average.toFixed(2)}</b><br>Xếp loại: <b>${grade}</b>`;
+        }
+    </script>
+
+</body>
+</html>
