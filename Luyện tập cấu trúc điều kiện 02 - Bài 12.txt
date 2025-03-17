@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Lãi Ngân Hàng</title>
+</head>
+<body>
+    <h2>Tính Lãi Ngân Hàng</h2>
+    <label for="soTien">Nhập số tiền ban đầu (VND):</label>
+    <input type="number" id="soTien" placeholder="Nhập số tiền">
+    <br>
+    <label for="soThang">Nhập số tháng gửi:</label>
+    <input type="number" id="soThang" placeholder="Nhập số tháng">
+    <br>
+    <label for="laiSuat">Nhập lãi suất hàng tháng (%):</label>
+    <input type="number" id="laiSuat" placeholder="Nhập lãi suất">
+    <br>
+    <button onclick="tinhLai()">Tính Lãi</button>
+    <p id="result"></p>
+
+    <script>
+        function tinhLai() {
+            let soTien = parseFloat(document.getElementById("soTien").value);
+            let soThang = parseInt(document.getElementById("soThang").value);
+            let laiSuat = parseFloat(document.getElementById("laiSuat").value) / 100;
+
+            if (isNaN(soTien) || isNaN(soThang) || isNaN(laiSuat) || soTien <= 0 || soThang <= 0 || laiSuat <= 0) {
+                document.getElementById("result").innerText = "Vui lòng nhập các giá trị hợp lệ!";
+                return;
+            }
+
+            let tongTien = soTien * Math.pow((1 + laiSuat), soThang);
+            
+            document.getElementById("result").innerText = `Tổng số tiền sau ${soThang} tháng: ${tongTien.toLocaleString()} VND`;
+        }
+    </script>
+</body>
+</html>
