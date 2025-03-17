@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm Tra Tam Giác</title>
+</head>
+<body>
+    <h2>Kiểm Tra 3 Cạnh Có Phải Tam Giác</h2>
+    <label for="a">Nhập cạnh a:</label>
+    <input type="number" id="a" placeholder="Nhập a">
+    <br>
+    <label for="b">Nhập cạnh b:</label>
+    <input type="number" id="b" placeholder="Nhập b">
+    <br>
+    <label for="c">Nhập cạnh c:</label>
+    <input type="number" id="c" placeholder="Nhập c">
+    <br>
+    <button onclick="checkTriangle()">Kiểm Tra</button>
+    <p id="result"></p>
+
+    <script>
+        function checkTriangle() {
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let c = parseFloat(document.getElementById("c").value);
+            
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                document.getElementById("result").innerText = "Vui lòng nhập các số hợp lệ!";
+                return;
+            }
+            
+            if (a > 0 && b > 0 && c > 0 && (a + b > c) && (b + c > a) && (a + c > b)) {
+                document.getElementById("result").innerText = "Ba số này có thể là cạnh của một tam giác.";
+            } else {
+                document.getElementById("result").innerText = "Ba số này không thể tạo thành một tam giác.";
+            }
+        }
+    </script>
+</body>
+</html>
