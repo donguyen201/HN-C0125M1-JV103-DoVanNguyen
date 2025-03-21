@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Hình Chữ Nhật</title>
+    <style>
+        pre {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h2>In Hình Chữ Nhật</h2>
+    <pre id="rectangle"></pre>
+    
+    <script>
+        function printRectangle() {
+            let width = 10;
+            let height = 5;
+            let rect = "";
+            
+            for (let i = 0; i < height; i++) {
+                rect += "*".repeat(width) + "\n";
+            }
+            
+            document.getElementById("rectangle").innerText = rect;
+        }
+        
+        printRectangle();
+    </script>
+</body>
+</html>
