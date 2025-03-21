@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập Mảng trong JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input, button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Bài Tập Mảng trong JavaScript</h2>
+
+    <h3>Bài 1: Nối các phần tử trong mảng thành chuỗi</h3>
+    <p id="result1"></p>
+
+    <h3>Bài 2: Chèn dấu "-" giữa các số chẵn</h3>
+    <input type="text" id="input2" placeholder="Nhập chuỗi số">
+    <button onclick="insertDashes()">Thực hiện</button>
+    <p id="result2"></p>
+
+    <h3>Bài 3: Chuyển đổi chữ thường sang chữ hoa và ngược lại</h3>
+    <input type="text" id="input3" placeholder="Nhập chuỗi văn bản">
+    <button onclick="swapCase()">Thực hiện</button>
+    <p id="result3"></p>
+
+    <script>
+        // Bài 1: Nối các phần tử trong mảng thành chuỗi
+        let myColor = ["Red", "Green", "White", "Black"];
+        document.getElementById("result1").innerText = myColor.join(",");
+
+        // Bài 2: Chèn dấu "-" giữa các số chẵn
+        function insertDashes() {
+            let input = document.getElementById("input2").value;
+            let output = input.replace(/([02468])(?=[02468])/g, "$1-");
+            document.getElementById("result2").innerText = output;
+        }
+
+        // Bài 3: Chuyển đổi chữ thường sang chữ hoa và ngược lại
+        function swapCase() {
+            let input = document.getElementById("input3").value;
+            let output = input.split('').map(char => {
+                return char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase();
+            }).join('');
+            document.getElementById("result3").innerText = output;
+        }
+    </script>
+</body>
+</html>
