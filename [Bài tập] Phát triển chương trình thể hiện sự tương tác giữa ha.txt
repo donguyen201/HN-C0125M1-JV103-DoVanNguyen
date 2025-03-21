@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công tắc và Bóng đèn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .light {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-top: 20px;
+            background-color: gray;
+        }
+        button {
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mô phỏng Công tắc và Bóng đèn</h2>
+    <div class="light" id="light"></div>
+    <br>
+    <button onclick="toggleSwitch()">Bật / Tắt</button>
+    <p id="status">Bóng đèn đang tắt</p>
+
+    <script>
+        class Switch {
+            constructor() {
+                this.state = false;
+            }
+            toggle() {
+                this.state = !this.state;
+            }
+        }
+
+        class LightBulb {
+            constructor() {
+                this.isOn = false;
+            }
+            setState(state) {
+                this.isOn = state;
+                document.getElementById("light").style.backgroundColor = state ? "yellow" : "gray";
+                document.getElementById("status").innerText = state ? "Bóng đèn đang bật" : "Bóng đèn đang tắt";
+            }
+        }
+
+        let mySwitch = new Switch();
+        let myLight = new LightBulb();
+
+        function toggleSwitch() {
+            mySwitch.toggle();
+            myLight.setState(mySwitch.state);
+        }
+    </script>
+</body>
+</html>
