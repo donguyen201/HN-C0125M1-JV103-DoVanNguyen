@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Tam Giác Vuông</title>
+    <style>
+        pre {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h2>In Tam Giác Vuông</h2>
+    <pre id="triangle1"></pre>
+    <pre id="triangle2"></pre>
+    <pre id="triangle3"></pre>
+    <pre id="triangle4"></pre>
+    
+    <script>
+        function printTriangle() {
+            let size = 5;
+            let t1 = "", t2 = "", t3 = "", t4 = "";
+            
+            // Góc vuông dưới trái
+            for (let i = 1; i <= size; i++) {
+                t1 += "*".repeat(i) + "\n";
+            }
+            
+            // Góc vuông trên trái
+            for (let i = size; i >= 1; i--) {
+                t2 += "*".repeat(i) + "\n";
+            }
+            
+            // Góc vuông dưới phải
+            for (let i = 1; i <= size; i++) {
+                t3 += " ".repeat(size - i) + "*".repeat(i) + "\n";
+            }
+            
+            // Góc vuông trên phải
+            for (let i = size; i >= 1; i--) {
+                t4 += " ".repeat(size - i) + "*".repeat(i) + "\n";
+            }
+            
+            document.getElementById("triangle1").innerText = t1;
+            document.getElementById("triangle2").innerText = t2;
+            document.getElementById("triangle3").innerText = t3;
+            document.getElementById("triangle4").innerText = t4;
+        }
+        
+        printTriangle();
+    </script>
+</body>
+</html>
