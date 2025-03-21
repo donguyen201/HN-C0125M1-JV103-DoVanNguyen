@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ điển Anh - Việt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input, button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Từ điển Anh - Việt</h2>
+    <input type="text" id="inputWord" placeholder="Nhập từ tiếng Anh">
+    <button onclick="translateWord()">Dịch</button>
+    <p id="translationResult"></p>
+
+    <script>
+        // Mảng lưu trữ từ tiếng Anh và tiếng Việt tương ứng
+        let englishWords = ["hello", "world", "apple", "banana", "cat", "dog", "car", "house", "computer", "phone"];
+        let vietnameseWords = ["xin chào", "thế giới", "táo", "chuối", "mèo", "chó", "xe hơi", "ngôi nhà", "máy tính", "điện thoại"];
+
+        function translateWord() {
+            let input = document.getElementById("inputWord").value.toLowerCase();
+            let index = englishWords.indexOf(input);
+            let result = index !== -1 ? vietnameseWords[index] : "Không tìm thấy";
+            document.getElementById("translationResult").innerText = result;
+        }
+    </script>
+</body>
+</html>
