@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam và Eva ăn táo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mô phỏng Adam và Eva ăn táo</h2>
+    <p><strong>Khối lượng táo:</strong> <span id="appleWeight">10</span></p>
+    <p><strong>Adam (Cân nặng):</strong> <span id="adamWeight">60</span></p>
+    <p><strong>Eva (Cân nặng):</strong> <span id="evaWeight">50</span></p>
+    <button onclick="adam.eat(apple)">Adam ăn táo</button>
+    <button onclick="eva.eat(apple)">Eva ăn táo</button>
+    <script>
+        class Apple {
+            constructor() {
+                this.weight = 10;
+            }
+            getWeight() {
+                return this.weight;
+            }
+            decreaseWeight() {
+                if (this.weight > 0) {
+                    this.weight--;
+                }
+            }
+        }
+
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+            speak(message) {
+                console.log(`${this.name} nói: "${message}"`);
+            }
+            eat(apple) {
+                if (apple.getWeight() > 0) {
+                    apple.decreaseWeight();
+                    this.weight++;
+                    document.getElementById("appleWeight").innerText = apple.getWeight();
+                    document.getElementById(this.name.toLowerCase() + "Weight").innerText = this.weight;
+                    this.speak("Táo ngon quá!");
+                } else {
+                    this.speak("Hết táo rồi!");
+                }
+            }
+        }
+
+        let apple = new Apple();
+        let adam = new Human("Adam", "Nam", 60);
+        let eva = new Human("Eva", "Nữ", 50);
+    </script>
+</body>
+</html>
