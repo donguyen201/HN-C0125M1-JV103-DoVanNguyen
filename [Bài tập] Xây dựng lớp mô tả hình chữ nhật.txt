@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình chữ nhật</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        canvas {
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mô tả hình chữ nhật</h2>
+    <p>Chiều dài: <input type="number" id="length" value="100"></p>
+    <p>Chiều rộng: <input type="number" id="width" value="50"></p>
+    <button onclick="drawRectangle()">Vẽ Hình Chữ Nhật</button>
+    <p>Diện tích: <span id="area"></span></p>
+    <p>Chu vi: <span id="perimeter"></span></p>
+    <canvas id="rectangleCanvas" width="300" height="200"></canvas>
+
+    <script>
+        class Rectangle {
+            constructor(length, width) {
+                this.length = length;
+                this.width = width;
+            }
+
+            getArea() {
+                return this.length * this.width;
+            }
+
+            getPerimeter() {
+                return 2 * (this.length + this.width);
+            }
+
+            draw() {
+                let canvas = document.getElementById("rectangleCanvas");
+                let ctx = canvas.getContext("2d");
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "blue";
+                ctx.fillRect(50, 50, this.length, this.width);
+            }
+        }
+
+        function drawRectangle() {
+            let length = parseInt(document.getElementById("length").value);
+            let width = parseInt(document.getElementById("width").value);
+            
+            let rectangle = new Rectangle(length, width);
+            document.getElementById("area").innerText = rectangle.getArea();
+            document.getElementById("perimeter").innerText = rectangle.getPerimeter();
+            rectangle.draw();
+        }
+    </script>
+</body>
+</html>
