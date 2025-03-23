@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra ký tự trong mảng</title>
+    <script>
+        function countCharacter(arr, char) {
+            let count = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === char) {
+                    count++;
+                }
+            }
+            return count > 0 ? count : -1;
+        }
+
+        // Nhập mảng ký tự từ người dùng (cách nhau bởi dấu phẩy)
+        let inputArray = prompt("Nhập một mảng ký tự (cách nhau bởi dấu phẩy, ví dụ: a,b,c,d,a,b):");
+        let array = inputArray.split(","); // Chuyển thành mảng
+
+        // Nhập ký tự cần kiểm tra
+        let character = prompt("Nhập ký tự cần kiểm tra:");
+
+        // Gọi hàm kiểm tra
+        let result = countCharacter(array, character);
+
+        // Hiển thị kết quả
+        if (result !== -1) {
+            alert(`Ký tự "${character}" xuất hiện ${result} lần trong mảng.`);
+        } else {
+            alert(`Ký tự "${character}" không có trong mảng.`);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
