@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập: Tính bình phương</title>
+    <script>
+        // Hàm tính bình phương của một số
+        function square(number) {
+            return number * number;
+        }
+
+        // Gọi hàm và kiểm tra
+        let userInput = prompt("Nhập một số để tính bình phương:");
+        let number = parseFloat(userInput);
+
+        if (!isNaN(number)) {
+            let result = square(number);
+            alert("Bình phương của " + number + " là: " + result);
+        } else {
+            alert("Vui lòng nhập một số hợp lệ!");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
