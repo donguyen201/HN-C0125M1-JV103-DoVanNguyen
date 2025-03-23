@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra ký tự số</title>
+    <script>
+        // Hàm kiểm tra ký tự có phải số hay không
+        function isDigit(char) {
+            return !isNaN(char) && char.trim() !== "";
+        }
+
+        // Gọi hàm và kiểm tra
+        let userInput = prompt("Nhập một ký tự:");
+        
+        if (userInput.length === 1) {
+            let result = isDigit(userInput);
+            alert("Ký tự '" + userInput + "' là số? " + result);
+        } else {
+            alert("Vui lòng nhập một ký tự duy nhất!");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
