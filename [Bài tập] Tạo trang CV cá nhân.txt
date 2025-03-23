@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Cá Nhân</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+        .section {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>CV Cá Nhân</h2>
+    <img src="avatar.png" alt="Ảnh cá nhân">
+    
+    <p><strong>Họ và tên:</strong> Nguyễn Văn A</p>
+    <p><strong>Địa chỉ:</strong> 123 Đường ABC, Quận XYZ, TP. HCM</p>
+    <p><strong>Số điện thoại:</strong> 0123-456-789</p>
+    <p><strong>Email:</strong> nguyenvana@example.com</p>
+
+    <div class="section">
+        <h3>Học vấn</h3>
+        <p>- Cử nhân Công nghệ Thông tin - Đại học XYZ (2015-2019)</p>
+    </div>
+
+    <div class="section">
+        <h3>Bằng cấp</h3>
+        <p>- Chứng chỉ Lập trình Web</p>
+        <p>- Chứng chỉ Tiếng Anh TOEIC 800</p>
+    </div>
+
+    <div class="section">
+        <h3>Kỹ năng</h3>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>React, Node.js</li>
+            <li>Kỹ năng làm việc nhóm</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Kinh nghiệm</h3>
+        <p>- 2 năm kinh nghiệm làm Frontend Developer tại công ty ABC</p>
+    </div>
+
+    <div class="section">
+        <h3>Định hướng phát triển cá nhân</h3>
+        <p>- Trở thành Full-stack Developer</p>
+        <p>- Phát triển kỹ năng quản lý dự án</p>
+    </div>
+</div>
+
+</body>
+</html>
