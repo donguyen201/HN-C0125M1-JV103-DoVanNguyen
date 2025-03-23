@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm số nhỏ nhất</title>
+    <script>
+        // Hàm tìm số nhỏ nhất trong 3 số nguyên
+        function findMin(a, b, c) {
+            return Math.min(a, b, c);
+        }
+
+        // Nhập 3 số nguyên từ người dùng
+        let num1 = parseInt(prompt("Nhập số nguyên thứ nhất:"));
+        let num2 = parseInt(prompt("Nhập số nguyên thứ hai:"));
+        let num3 = parseInt(prompt("Nhập số nguyên thứ ba:"));
+
+        // Gọi hàm và hiển thị kết quả
+        let minNumber = findMin(num1, num2, num3);
+        alert("Số nhỏ nhất là: " + minNumber);
+    </script>
+</head>
+<body>
+</body>
+</html>
