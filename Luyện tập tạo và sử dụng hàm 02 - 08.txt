@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đảo ngược mảng</title>
+    <script>
+        function reverseArray(arr) {
+            return arr.reverse(); // Dùng phương thức có sẵn để đảo mảng
+        }
+
+        // Nhập mảng từ người dùng (chuỗi số cách nhau bằng dấu phẩy)
+        let input = prompt("Nhập một dãy số nguyên, cách nhau bằng dấu phẩy (ví dụ: 1,2,3,4,5):");
+        
+        // Chuyển chuỗi nhập vào thành mảng số nguyên
+        let numArray = input.split(",").map(Number);
+
+        // Gọi hàm đảo ngược mảng
+        let reversedArray = reverseArray(numArray);
+
+        // Hiển thị kết quả
+        alert("Mảng sau khi đảo ngược: " + reversedArray.join(", "));
+        console.log("Mảng sau khi đảo ngược:", reversedArray);
+    </script>
+</head>
+<body>
+</body>
+</html>
