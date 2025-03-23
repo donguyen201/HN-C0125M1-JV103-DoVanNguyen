@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4: Kiểm tra giá trị biến</title>
+    <script>
+        function addNumbers() {
+            let firstNum = 4;
+            let secondNum = 8;
+            let result = firstNum + secondNum;
+            return result;
+        }
+
+        let result = 0; // Khởi tạo biến result
+        alert("Giá trị của result trước khi gọi hàm: " + result);
+
+        result = addNumbers(); // Gọi hàm addNumbers()
+
+        alert("Giá trị của result sau khi gọi hàm: " + result);
+    </script>
+</head>
+<body>
+</body>
+</html>
