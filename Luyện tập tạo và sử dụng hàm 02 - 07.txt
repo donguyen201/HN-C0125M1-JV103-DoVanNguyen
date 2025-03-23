@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đổi chỗ hai số nguyên</title>
+    <script>
+        function swapNumbers(a, b) {
+            // Hiển thị giá trị ban đầu
+            console.log("Trước khi đổi chỗ: a =", a, ", b =", b);
+
+            // Đổi chỗ hai số
+            let temp = a;
+            a = b;
+            b = temp;
+
+            // Hiển thị kết quả sau khi đổi
+            console.log("Sau khi đổi chỗ: a =", a, ", b =", b);
+            return [a, b];
+        }
+
+        // Nhập hai số từ người dùng
+        let num1 = parseInt(prompt("Nhập số nguyên thứ nhất:"));
+        let num2 = parseInt(prompt("Nhập số nguyên thứ hai:"));
+
+        // Gọi hàm và hiển thị kết quả
+        let swapped = swapNumbers(num1, num2);
+        alert("Sau khi đổi chỗ: a = " + swapped[0] + ", b = " + swapped[1]);
+    </script>
+</head>
+<body>
+</body>
+</html>
