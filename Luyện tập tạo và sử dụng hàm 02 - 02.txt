@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính diện tích và chu vi hình tròn</title>
+    <script>
+        // Hàm tính diện tích hình tròn
+        function circleArea(radius) {
+            return Math.PI * radius * radius;
+        }
+
+        // Hàm tính chu vi hình tròn
+        function circleCircumference(radius) {
+            return 2 * Math.PI * radius;
+        }
+
+        // Gọi hàm và kiểm tra
+        let userInput = prompt("Nhập bán kính hình tròn:");
+        let radius = parseFloat(userInput);
+
+        if (!isNaN(radius) && radius > 0) {
+            let area = circleArea(radius);
+            let circumference = circleCircumference(radius);
+            alert("Diện tích hình tròn: " + area.toFixed(2) + 
+                  "\nChu vi hình tròn: " + circumference.toFixed(2));
+        } else {
+            alert("Vui lòng nhập bán kính hợp lệ (số dương)!");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
