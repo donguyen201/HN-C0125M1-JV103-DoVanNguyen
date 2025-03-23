@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5: Tìm chòm sao</title>
+    <script>
+        // Mảng chứa tên các ngôi sao
+        let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+
+        // Mảng chứa tên các chòm sao tương ứng
+        let constellations = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+        // Hàm tìm chòm sao dựa trên tên ngôi sao
+        function findConstellation(starName) {
+            let index = stars.indexOf(starName);
+            if (index !== -1) {
+                return constellations[index];
+            } else {
+                return "Không tìm thấy ngôi sao này trong danh sách.";
+            }
+        }
+
+        // Nhập tên ngôi sao từ người dùng
+        let userInput = prompt("Nhập tên ngôi sao:");
+        if (userInput) {
+            let result = findConstellation(userInput);
+            alert(result);
+        } else {
+            alert("Bạn chưa nhập tên ngôi sao.");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
