@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3: So sánh hai số</title>
+    <script>
+        function compareAndSum(a, b) {
+            if (a > b) {
+                alert("Số thứ nhất lớn hơn số thứ hai!");
+            } else {
+                return a + b;
+            }
+        }
+
+        function showResult() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result = compareAndSum(num1, num2);
+
+            if (result !== undefined) {
+                document.getElementById("result").innerText = "Tổng hai số: " + result;
+            } else {
+                document.getElementById("result").innerText = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>So sánh hai số</h1>
+    <label for="num1">Nhập số thứ nhất:</label>
+    <input type="number" id="num1">
+    <br>
+    <label for="num2">Nhập số thứ hai:</label>
+    <input type="number" id="num2">
+    <br>
+    <button onclick="showResult()">Kiểm tra</button>
+    <p id="result"></p>
+</body>
+</html>
