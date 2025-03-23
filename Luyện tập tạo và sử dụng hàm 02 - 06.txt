@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số nguyên dương</title>
+    <script>
+        // Hàm kiểm tra số nguyên dương
+        function isPositiveInteger(number) {
+            return Number.isInteger(number) && number > 0;
+        }
+
+        // Nhập số từ người dùng
+        let userInput = parseFloat(prompt("Nhập một số bất kỳ:"));
+
+        // Kiểm tra và hiển thị kết quả
+        if (isPositiveInteger(userInput)) {
+            alert(userInput + " là số nguyên dương.");
+        } else {
+            alert(userInput + " không phải là số nguyên dương.");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
