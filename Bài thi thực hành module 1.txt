@@ -1,0 +1,189 @@
+Bài 1:
+// Hàm để nhập mảng từ người dùng
+function nhapMang() {
+    let arr = [];
+    let n;
+    
+    do {
+        n = parseInt(prompt("Nhập số phần tử của mảng (tối đa 50):"));
+        if (n > 50 || n <= 0) {
+            alert("Vui lòng nhập số phần tử hợp lệ (1 - 50)!");
+        }
+    } while (n > 50 || n <= 0);
+    
+    // Nhập giá trị vào mảng
+    for (let i = 0; i < n; i++) {
+        let num = parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`));
+        arr.push(num);
+    }
+    
+    return arr;
+}
+
+// Hàm hiển thị mảng
+function hienThiMang(arr) {
+    console.log("Mảng đã nhập:", arr);
+    alert("Mảng đã nhập: " + arr.join(", "));
+}
+
+// Hàm tính trung bình cộng của các số chia hết cho 3
+function tinhTrungBinh(arr) {
+    let sum = 0, count = 0;
+    arr.forEach(num => {
+        if (num % 3 === 0) {
+            sum += num;
+            count++;
+        }
+    });
+
+    if (count > 0) {
+        let average = sum / count;
+        console.log("Trung bình cộng của các số chia hết cho 3:", average);
+        alert("Trung bình cộng của các số chia hết cho 3: " + average);
+    } else {
+        console.log("Không có số nào chia hết cho 3 trong mảng!");
+        alert("Không có số nào chia hết cho 3 trong mảng!");
+    }
+}
+
+// Chương trình chính
+let mang = nhapMang();
+hienThiMang(mang);
+tinhTrungBinh(mang);
+
+
+Bài 2:
+// Hàm kiểm tra số hoàn hảo
+function isPerfectNumber(n) {
+    if (n <= 0) return false; // Số nguyên dương mới hợp lệ
+    let sum = 0;
+    
+    // Tìm tổng các ước số thực sự của n
+    for (let i = 1; i <= n / 2; i++) {
+        if (n % i === 0) {
+            sum += i;
+        }
+    }
+    
+    return sum === n; // Kiểm tra tổng có bằng chính nó không
+}
+
+// Test chương trình
+console.log(isPerfectNumber(6));  // True
+console.log(isPerfectNumber(9));  // False
+console.log(isPerfectNumber(28)); // True
+console.log(isPerfectNumber(12)); // False
+
+Bài 3: 
+function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+
+function getDaysInMonth(input) {
+    // Kiểm tra định dạng MM/yyyy
+    let regex = /^(0[1-9]|1[0-2])\/\d{4}$/;
+    if (!regex.test(input)) {
+        return "Định dạng không hợp lệ. Nhập theo MM/yyyy.";
+    }
+
+    let parts = input.split("/");
+    let month = parseInt(parts[0], 10);
+    let year = parseInt(parts[1], 10);
+
+    let daysInMonth = {
+        1: 31, 2: isLeapYear(year) ? 29 : 28, 3: 31, 4: 30,
+        5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31
+    };
+
+    return daysInMonth[month];
+}
+
+// Kiểm tra với một số trường hợp
+console.log(getDaysInMonth("01/2020")); // 31
+console.log(getDaysInMonth("02/2020")); // 29 (năm nhuận)
+console.log(getDaysInMonth("02/2021")); // 28 (không nhuận)
+console.log(getDaysInMonth("13/2020")); // Định dạng không hợp lệ
+console.log(getDaysInMonth("abc/2020")); // Định dạng không hợp lệ
+
+Bài 4: 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý công nhân</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Quản lý công nhân</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>Ngày sinh</th>
+                <th>Địa chỉ</th>
+                <th>Lương</th>
+                <th>Chức vụ</th>
+            </tr>
+        </thead>
+        <tbody id="workerTable"></tbody>
+    </table>
+
+    <script>
+        class Worker {
+            constructor(stt, fullName, birthDate, address, salary, position) {
+                this.stt = stt;
+                this.fullName = fullName;
+                this.birthDate = birthDate;
+                this.address = address;
+                this.salary = salary;
+                this.position = position;
+            }
+        }
+
+        let workers = [
+            new Worker(1, "Trương Tấn A", "11-11-1997", "Quảng Nam", 2000, "ABC"),
+            new Worker(2, "Trương Tấn C", "11-11-1994", "Huế", 2000, "ABC"),
+            new Worker(3, "Trương Tấn B", "11-11-1998", "Đà Nẵng", 2000, "ABC")
+        ];
+
+        // Sắp xếp theo họ và tên
+        workers.sort((a, b) => a.fullName.localeCompare(b.fullName));
+
+        function renderTable() {
+            let tableBody = document.getElementById("workerTable");
+            tableBody.innerHTML = "";
+            workers.forEach(worker => {
+                let row = `<tr>
+                    <td>${worker.stt}</td>
+                    <td>${worker.fullName}</td>
+                    <td>${worker.birthDate}</td>
+                    <td>${worker.address}</td>
+                    <td>${worker.salary}</td>
+                    <td>${worker.position}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        renderTable();
+    </script>
+
+</body>
+</html>
